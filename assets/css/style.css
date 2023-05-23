@@ -435,6 +435,12 @@ section .container {
   margin-bottom: 0;
 }
 
+.smaller-image {
+  max-width: 300px; /* Adjust the value as needed */
+  max-height: 300px; /* Adjust the value as needed */
+  margin-left: 50px;
+}
+
 /*--------------------------------------------------------------
 # Counts
 --------------------------------------------------------------*/
