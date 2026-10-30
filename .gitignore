@@ -1,0 +1,7 @@
+node_modules/
+.preview/
+test-results/
+*.log
+.next/
+out/
+next-env.d.ts

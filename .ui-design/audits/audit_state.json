@@ -1,0 +1,27 @@
+{
+  "audit_id": "accessibility-2026-10-30",
+  "target": "Static portfolio ES/EN",
+  "wcag_level": "AA",
+  "standard": "WCAG 2.2",
+  "status": "complete",
+  "completed_at": "2026-10-30T15:01:18.932Z",
+  "initial_issues": {
+    "serious": 1,
+    "moderate": 2,
+    "minor": 1
+  },
+  "implemented_findings": [
+    "F01",
+    "F02",
+    "F04",
+    "F05"
+  ],
+  "full_conformance": "not established",
+  "pending": [
+    "screen reader",
+    "native browser zoom",
+    "forced colors",
+    "physical devices"
+  ],
+  "report": "accessibility-2026-10-30.md"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "leandro-eguia-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Leandro Eguia's Next.js portfolio, exported statically for GitHub Pages.",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 4173",
+    "build": "next build",
+    "preview": "node scripts/serve.mjs",
+    "test": "node scripts/check-export.mjs",
+    "test:browser": "node scripts/check-browser.mjs",
+    "test:motion": "node scripts/check-motion.mjs",
+    "format": "prettier --write \"app/**/*.{jsx,css}\" \"components/**/*.{jsx,js}\" \"lib/*.js\" \"scripts/*.mjs\" next.config.mjs README.md package.json"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "playwright": "^1.56.1",
+    "prettier": "^3.9.10"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "next": "^16.4.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}
