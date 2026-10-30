@@ -1,9 +1,10 @@
 "use client";
 import { T, usePortfolio } from "../portfolio-provider";
 import { currentExperience, previousExperience } from "../../lib/experience";
+import { ExperienceItem } from "../experience-item";
 
 export function Experience() {
-  const { language } = usePortfolio();
+  const { language, motion } = usePortfolio();
   const job = currentExperience;
   return (
     <section
@@ -66,32 +67,13 @@ export function Experience() {
       </article>
 
       <div className="experience-list">
-        {previousExperience.map((item, index) => (
-          <article
-            className="experience-row career-row"
-            data-reveal="true"
+        {previousExperience.map((item) => (
+          <ExperienceItem
             key={item.company}
-          >
-            <span className="experience-number mono">
-              {String(index + 2).padStart(2, "0")}
-            </span>
-            <div className="experience-name">
-              <h3>{item.company}</h3>
-              <p>{item.role}</p>
-              <p className="role-dates">{item.dates[language]}</p>
-            </div>
-            <div className="experience-description">
-              <p>{item.description[language]}</p>
-              <ul className="tags">
-                {item.stack.map((tool) => (
-                  <li key={tool}>{tool}</li>
-                ))}
-              </ul>
-            </div>
-            {item.type && (
-              <span className="experience-type">{item.type[language]}</span>
-            )}
-          </article>
+            item={item}
+            language={language}
+            motion={motion}
+          />
         ))}
       </div>
     </section>

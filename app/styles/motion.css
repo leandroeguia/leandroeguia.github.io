@@ -1,0 +1,82 @@
+.typed-role {
+  display: none;
+}
+.is-typing .typed-role {
+  display: block;
+}
+.typed-role::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  margin-left: 4px;
+  vertical-align: -0.08em;
+  background: var(--accent);
+  animation: typing-cursor 0.8s step-end infinite;
+}
+@keyframes typing-cursor {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes reading-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+html[data-motion="off"] {
+  scroll-behavior: auto;
+}
+html[data-motion="off"] .site-header::after {
+  display: none;
+}
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  transition: none !important;
+  animation: none !important;
+}
+html[data-motion="off"] .is-typing .role-text {
+  opacity: 1;
+}
+html[data-motion="off"] .is-typing .typed-role {
+  display: none;
+}
+html[data-motion="on"] .portrait-wrap {
+  animation: portrait-settle 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+html[data-motion="on"] [data-entry="done"] {
+  animation: enter-once 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: var(--entry-delay, 0ms);
+}
+@keyframes enter-once {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="on"]) *,
+  html:not([data-motion="on"]) *::before,
+  html:not([data-motion="on"]) *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@keyframes portrait-settle {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

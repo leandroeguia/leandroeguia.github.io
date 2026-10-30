@@ -37,6 +37,17 @@ try {
     height,
     "Typing reserves the final text height",
   );
+  assert.equal(
+    await page
+      .locator(".portrait-wrap")
+      .evaluate((el) =>
+        el
+          .getAnimations()
+          .some((animation) => animation.playState === "running"),
+      ),
+    false,
+    "The portrait settles after entry instead of moving continuously while reading",
+  );
   await page.locator(".work-card").first().scrollIntoViewIfNeeded();
   await page.waitForFunction(() =>
     document

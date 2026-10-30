@@ -1,0 +1,212 @@
+.current-role {
+  padding-bottom: 28px;
+}
+.current-role-heading {
+  padding: 28px var(--panel-padding);
+}
+.work-card.current-role h3 {
+  max-width: none;
+}
+.current-role-meta {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.role-dates {
+  font: 500 var(--text-small)/1.7 var(--body);
+  color: var(--muted);
+}
+.current-role .work-card-top {
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.responsibilities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 40px;
+  padding: 28px var(--panel-padding) 0;
+  border-top: 1px solid var(--line);
+}
+.responsibilities h4 {
+  font-size: 21px;
+  font-weight: 600;
+}
+.responsibilities p {
+  margin-top: 10px;
+  font-size: var(--text-body);
+  color: var(--muted);
+  line-height: 1.75;
+}
+.current-role-stack {
+  margin-inline: var(--panel-padding);
+}
+.career-row .experience-description {
+  max-width: none;
+}
+.career-row .tags {
+  margin-top: 15px;
+}
+.experience-name .role-dates {
+  margin-top: 12px;
+}
+.work-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-raised);
+}
+.work-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px var(--panel-padding);
+  color: var(--label);
+  background: var(--surface-subtle);
+  border-bottom: 1px solid var(--line);
+}
+.work-card-top .mono {
+  font-size: var(--text-label);
+  letter-spacing: 0.08em;
+}
+.work-company {
+  font: 700 var(--text-body)/1.5 var(--body);
+  color: var(--label);
+  margin-bottom: 10px;
+}
+.work-card h3 {
+  max-width: 360px;
+  font-size: 29px;
+  letter-spacing: -0.9px;
+  line-height: 1.15;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 23px;
+}
+.tags > li {
+  font: 500 var(--text-label)/1.5 var(--mono);
+  letter-spacing: 0.1px;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+  background: var(--surface-subtle);
+}
+.experience-list {
+  margin-top: 24px;
+  display: grid;
+  gap: 16px;
+}
+.experience-row {
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.experience-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 24px var(--panel-padding);
+  border-radius: var(--radius);
+  list-style: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.experience-summary::-webkit-details-marker {
+  display: none;
+}
+.experience-summary::marker {
+  content: "";
+}
+.experience-summary:hover {
+  background: color-mix(in srgb, var(--brand) 9%, var(--surface));
+}
+.experience-row[open] > .experience-summary {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.experience-disclosure {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--surface-subtle);
+  color: var(--accent);
+}
+.experience-disclosure .icon {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s;
+}
+.experience-row[open]:not([data-expanded="false"])
+  .experience-disclosure
+  .icon {
+  transform: rotate(180deg);
+}
+html[data-theme="light"] .experience-disclosure {
+  background: var(--brand);
+  color: var(--brand-ink);
+}
+.experience-name h3 {
+  font-size: 22px;
+  letter-spacing: -0.4px;
+  font-weight: 600;
+}
+.experience-name > p {
+  font-size: var(--text-small);
+  margin-top: 5px;
+  color: var(--muted);
+}
+.experience-description {
+  color: var(--muted);
+  font-size: var(--text-body);
+  max-width: 440px;
+  line-height: 1.75;
+  padding: 24px var(--panel-padding);
+  border-top: 1px solid var(--line);
+}
+.experience-type {
+  font: 600 var(--text-small)/1.5 var(--body);
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--label);
+  text-align: left;
+}
+.experience-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  margin-bottom: 16px;
+}
+.experience-meta .experience-type {
+  margin-top: 0;
+}
+.section-work {
+  border-top: 1px solid var(--line);
+}
+html[data-theme="light"] .work-card-top {
+  background: var(--brand-tint);
+}
+html[data-theme="light"] .work-card-top .mono {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+html[data-theme="light"] .work-card-top .mono::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 1px var(--brand-border);
+}
+html[data-theme="light"] .tags > li {
+  background: var(--brand-tint);
+  border-color: color-mix(in srgb, var(--brand-border) 45%, var(--line));
+  color: var(--brand-ink);
+}

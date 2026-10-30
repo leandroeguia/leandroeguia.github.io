@@ -102,10 +102,88 @@ try {
     }
     await spacingStyle.evaluate((element) => element.remove());
     await page.setViewportSize({ width: 390, height: 844 });
+    const careers = page.locator(".career-row");
+    const firstCareer = careers.first();
+    assert.equal(await careers.count(), 4);
+    assert.equal(await firstCareer.locator("summary .role-dates").count(), 0);
+    assert.equal(
+      await firstCareer.locator("summary .experience-type").count(),
+      0,
+    );
+    assert.equal(
+      await firstCareer.locator(".experience-content").isVisible(),
+      false,
+    );
+    const closedHeight = await firstCareer.evaluate(
+      (el) => el.getBoundingClientRect().height,
+    );
+    await firstCareer.locator("summary").focus();
+    await page.keyboard.press("Enter");
+    await page.waitForFunction((closed) => {
+      const el = document.querySelector(".career-row");
+      const opacity = Number(
+        getComputedStyle(el.querySelector(".experience-content")).opacity,
+      );
+      return (
+        el.getBoundingClientRect().height > closed + 1 &&
+        opacity > 0 &&
+        opacity < 1
+      );
+    }, closedHeight);
+    await page.waitForFunction(() => {
+      const el = document.querySelector(".career-row");
+      return el.open && !el.dataset.expanded;
+    });
     assert(
       await page.locator(".experience-type").first().isVisible(),
-      "Preserve employment type on mobile",
+      "Employment details become visible after opening on mobile",
     );
+    await page.keyboard.press("Space");
+    await page.waitForFunction(
+      () => !document.querySelector(".career-row").open,
+    );
+    assert.equal(
+      await firstCareer.locator(".experience-content").isVisible(),
+      false,
+    );
+    // Rapid input reverses the animation without leaving a fixed or clipped height.
+    await firstCareer.locator("summary").evaluate((el) => {
+      el.click();
+      el.click();
+      el.click();
+    });
+    await page.waitForFunction(() => {
+      const el = document.querySelector(".career-row");
+      return el.open && !el.dataset.expanded && !el.style.height;
+    });
+    for (const width of [320, 390, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      await careers.evaluateAll((nodes) =>
+        nodes.forEach((el) => {
+          el.open = true;
+        }),
+      );
+      assert(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth + 1,
+        ),
+        `Expanded career details fit ${language}/${theme}/${width}`,
+      );
+    }
+    const expandedAxe = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+      .analyze();
+    assert.deepEqual(
+      expandedAxe.violations.map((v) => v.id),
+      [],
+      "Expanded career content passes axe",
+    );
+    await careers.evaluateAll((nodes) =>
+      nodes.forEach((el) => {
+        el.open = false;
+      }),
+    );
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.evaluate(() => window.scrollTo(0, 0));
     const toggle = page.locator(".menu-toggle");
     await toggle.click();
@@ -208,6 +286,12 @@ try {
   assert.equal(await page.locator(".language-switch").isVisible(), false);
   await page.locator('.main-nav a[href="#work"]').click();
   assert.equal(new URL(page.url()).hash, "#work");
+  await page.locator(".career-row summary").first().click();
+  assert.equal(
+    await page.locator(".career-row .experience-content").first().isVisible(),
+    true,
+    "Career details open without JavaScript",
+  );
   await context.close();
   console.log("No-JavaScript content and mobile navigation passed.");
 } finally {

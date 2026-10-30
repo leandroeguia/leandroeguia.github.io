@@ -44,7 +44,7 @@ export function PortfolioProvider({ children }) {
     document.documentElement.dataset.theme = theme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", theme === "light" ? "#d5ddcc" : "#171916");
+      ?.setAttribute("content", theme === "light" ? "#d5dace" : "#171b18");
     document.documentElement.classList.add("js");
     document
       .querySelector('meta[name="description"]')

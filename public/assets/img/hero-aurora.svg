@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="aurora" x1="0" y1="0" x2="1" y2=".75">
+      <stop stop-color="#78ad3d"/>
+      <stop offset=".48" stop-color="#176a59"/>
+      <stop offset="1" stop-color="#163d67"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#aurora)" d="M-180 160C40 20 140 300 340 220C510 150 500-60 760 40C900 110 930 270 1130 210C1330 150 1400 50 1580 190L1580 580C1350 720 1280 360 1080 440C880 520 860 800 650 690C460 590 500 400 300 470C100 550 20 640-180 490Z"/>
+</svg>

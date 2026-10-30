@@ -46,9 +46,7 @@ export function Expertise() {
             </h3>
             <p data-i18n="expertise.backend.description">
               <T id="expertise.backend.description">
-                {
-                  "Microservice development with Java and Python. At Mercado Libre I work with Spark and Javalin, applying TDD and XP practices."
-                }
+                {"Java and Python services, APIs, and test-driven development."}
               </T>
             </p>
             <ul className="tags">
@@ -71,7 +69,7 @@ export function Expertise() {
             <p data-i18n="expertise.architecture.description">
               <T id="expertise.architecture.description">
                 {
-                  "Design and maintenance of microservices and event-driven systems, with a focus on scalability and a product-wide perspective."
+                  "Microservices and event-driven systems designed to grow and remain maintainable."
                 }
               </T>
             </p>
@@ -94,7 +92,7 @@ export function Expertise() {
             <p data-i18n="expertise.data.description">
               <T id="expertise.data.description">
                 {
-                  "ETL pipelines with Python and JupyterLab, SQL and GraphQL analysis, and application monitoring with Datadog, New Relic, and Kibana."
+                  "ETL pipelines, data analysis, and monitoring to understand products in production."
                 }
               </T>
             </p>

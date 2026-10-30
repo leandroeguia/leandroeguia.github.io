@@ -101,33 +101,6 @@ export function About() {
                 </dd>
               </div>
             </dl>
-            <dl className="profile-facts">
-              <div>
-                <dt>
-                  <T id="about.based">BASED IN</T>
-                </dt>
-                <dd>La Plata, Buenos Aires</dd>
-              </div>
-              <div>
-                <dt>
-                  <T id="about.education">EDUCATION</T>
-                </dt>
-                <dd>
-                  <T id="about.degree">Computer Engineer · UNLP</T>
-                </dd>
-              </div>
-            </dl>
-            <a
-              className="text-link"
-              href="https://www.linkedin.com/in/leandroeguia/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <T id="about.linkedin">My full profile on LinkedIn</T>
-              <svg className="icon small-icon" aria-hidden="true">
-                <use href="/assets/img/icons.svg#arrow-up-right" />
-              </svg>
-            </a>
           </div>
 
           <aside
@@ -167,6 +140,35 @@ export function About() {
               ))}
             </ul>
           </aside>
+        </div>
+        <div className="about-footer" data-reveal="true">
+          <dl className="profile-facts">
+            <div>
+              <dt>
+                <T id="about.based">BASED IN</T>
+              </dt>
+              <dd>La Plata, Buenos Aires</dd>
+            </div>
+            <div>
+              <dt>
+                <T id="about.education">EDUCATION</T>
+              </dt>
+              <dd>
+                <T id="about.degree">Computer Engineer · UNLP</T>
+              </dd>
+            </div>
+          </dl>
+          <a
+            className="text-link"
+            href="https://www.linkedin.com/in/leandroeguia/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <T id="about.linkedin">My full profile on LinkedIn</T>
+            <svg className="icon small-icon" aria-hidden="true">
+              <use href="/assets/img/icons.svg#arrow-up-right" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
